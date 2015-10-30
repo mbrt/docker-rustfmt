@@ -15,8 +15,8 @@ RUN apt-get update                                                              
     cargo install --git https://github.com/nrc/rustfmt                                              && \
     mv /root/.cargo/bin/rustfmt /usr/local/bin                                                      && \
 # cleanup
-    apt-get remove --purge -y curl ca-certificates                                                  && \
-    apt-get autoclean && apt-get clean                                                              && \
+    apt-get remove --purge -y build-essential curl ca-certificates                                  && \
+    apt-get autoremove -y && apt-get autoclean && apt-get clean                                     && \
     /usr/local/lib/rustlib/uninstall.sh                                                             && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /root/.cargo
 
